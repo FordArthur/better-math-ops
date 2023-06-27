@@ -1,0 +1,17 @@
+(function sum
+  (let magicnum (** 10 16))
+  (.. / (reduce + (map @(* magicnum) args)) magicnum))
+
+(function mul
+  (.. safe-inv (reduce * (map safe-inv args))))
+
+(var inv @(/ 1)
+     safe-inv #((zero? %) 0 (inv %))
+     sine #(if (zero? (rem % PI)) 0 (sin %))
+     cosine #(if (= (/ PI 2) (abs (rem % PI))) 0 (cos %))
+     tangent #(/ (sine %) (cosine %))
+     cosecant (comp sine inv)
+     secant (comp cosine inv)
+     cotangent (comp tangent inv))
+
+(var PI/2 (/ PI 2) 2PI (* PI 2))
