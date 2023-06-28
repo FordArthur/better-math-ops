@@ -12,6 +12,8 @@
      tangent #(/ (sine %) (cosine %))
      cosecant (comp sine inv)
      secant (comp cosine inv)
-     cotangent (comp tangent inv))
+     cotangent (comp tangent inv)
+     safe-max (fn x y (if y (.. max args) x))
+     safe-min (fn x y (if y (.. min args) x)))
 
 (var PI/2 (/ PI 2) 2PI (* PI 2))
